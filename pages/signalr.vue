@@ -197,6 +197,7 @@ export default Vue.extend({
       await this.connection.send('send', this.username, this.message)
       this.message.content = ''
       this.message.time = 0
+      // 2px
     },
   },
 })

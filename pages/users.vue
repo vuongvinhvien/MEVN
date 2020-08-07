@@ -7,7 +7,7 @@
       </h1>
       <div class="links">
         <n-link class="button--grey" to="/">home</n-link>
-        <n-link class="button--grey" to="/api/users">new</n-link>
+        <n-link class="button--grey" to="/change/users">new</n-link>
         <button class="button--grey" @click="getUser()">get users</button>
       </div>
     </div>
@@ -36,13 +36,13 @@ export default Vue.extend({
       // console.log(process.env.BASE_URL)
       // console.log(this.$config.browserBaseURL)
       // console.log(this.$config)
-      for (let i = 0; i < 20000; i++) {
-        await this.$axios.get('/api/users').then((res) => {
-          this.user.name = res.data
-          // eslint-disable-next-line no-console
-          console.log(res.data)
-        })
-      }
+      // for (let i = 0; i < 20000; i++) {
+      //   await this.$axios.get('/api/users').then((res) => {
+      //     this.user.name = res.data
+      //     // eslint-disable-next-line no-console
+      //     console.log(res.data)
+      //   })
+      // }
     },
   },
 })

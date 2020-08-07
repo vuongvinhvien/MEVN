@@ -9,14 +9,14 @@ const users = require('../controller/users/users')
 const articles = require('../controller/articles/articles')
 // We instantiate Nuxt.js with the options
 consola.info('server init: --------------------------------')
-const port = process.env.PORT || 3000
+// const port = process.env.PORT || 3000
 
 async function start() {
   const nuxt = new Nuxt(config)
-  const { host } = nuxt.options.server
+  const { host, port } = nuxt.options.server
   consola.info(`${host} : ${port}`)
-  app.use(articles)
-  app.use(users)
+  app.use('/api', articles)
+  app.use('/api', users)
   app.use(nuxt.render)
   consola.info(`is dev ${config.dev}`)
   if (config.dev) {
@@ -27,12 +27,13 @@ async function start() {
     consola.info('is Production')
     await nuxt.ready()
   }
-  consola.info(`we come back http://${host}:${port}`)
-  // app.listen(port, () =>
-  //   consola.log(`vuong vinh vien at http://${host}:${port}`)
-  // )
+  // consola.info(`we come back http://${host}:${port}`)
+  app.listen(port, () =>
+    consola.log(`vuong vinh vien at http://${host}:${port}`)
+  )
 }
+
 start()
 
 // module.exports = { path: '/api', handler: app }
-module.exports = app
+// module.exports = app

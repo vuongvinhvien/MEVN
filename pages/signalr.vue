@@ -194,7 +194,7 @@ export default Vue.extend({
     async onSubmit() {
       this.message.time = new Date().getTime()
       this.message.username = this.username
-      await this.connection.send('send', this.username, this.message)
+      await this.connection.send('send2', this.username, this.message)
       this.message.content = ''
       this.message.time = 0
       // 2px

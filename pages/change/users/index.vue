@@ -28,9 +28,9 @@ export default Vue.extend({
   },
   methods: {
     getUser() {
-      const getok = this.$axios.get('/api/get')
+      const getok = this.$axios.get('/api/users')
       getok.then((res) => {
-        this.user.name = res.data
+        console.log(res.data)
       })
     },
   },

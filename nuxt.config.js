@@ -4,7 +4,8 @@ module.exports = {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: 'universal',
+  // mode: 'universal',
+  mode: 'spa',
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -16,13 +17,13 @@ module.exports = {
     // host: '0.0.0.0', // default: localhost
   },
   dev: process.env.NODE_ENV !== 'production',
-  serverMiddleware: [
-    // '~/api/index.js',
+  // serverMiddleware: [
+  //   // '~/api/index.js',
 
-    { path: '/api', handler: '~/server2/index.js' },
-    // { path: '/api', handler: '~/server2/index.js' },
-    // { path: '/api', handler: '~/servers/middleware/index.js' },
-  ],
+  //   { path: '/api', handler: '~/server2/index.js' },
+  //   // { path: '/api', handler: '~/server2/index.js' },
+  //   // { path: '/api', handler: '~/servers/middleware/index.js' },
+  // ],
   // env: {
   //   baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   // },
@@ -30,7 +31,7 @@ module.exports = {
    ** watch file
    ** See https://nuxtjs.org/api/configuration-watch/
    */
-  // watch: ['~/server2/*.js'],
+  watch: ['~/servers/**/*.js'],
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
@@ -146,7 +147,14 @@ module.exports = {
           },
         })
       }
+
       // ....
+    },
+    babel: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      presets({ isServer }) {
+        return [['@nuxt/babel-preset-app', { loose: true }]]
+      },
     },
   },
   /*

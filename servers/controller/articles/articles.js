@@ -11,6 +11,7 @@ const article = {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 articleRouter.get('/articles', (req, res) => {
   consola.log(req.params)
+  consola.log(req.params)
   res.status(200).send(article)
 })
 
